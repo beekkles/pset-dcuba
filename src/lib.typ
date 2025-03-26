@@ -1,9 +1,9 @@
 #import "@preview/showybox:2.0.2": showybox
 
-#let problem_counter = counter("problem")
+#let ej_counter = counter("ejercicio")
 
-#let prob(title: "", color: green, ..body) = {
-  [== Problem #problem_counter.step() #context {problem_counter.display()}]
+#let ej(title: "", color: green, ..body) = {
+  [== Ejercicio #ej_counter.step() #context {ej_counter.display()}]
   showybox(
     frame: (
       border-color: color.darken(10%),
@@ -19,14 +19,11 @@
   )
 }
 
-#let homework(
-  title: "Homework Assignment",
-  author: "John Doe",
-  collaborators: [],
-  course-id: "ILY143",
-  instructor: "Prof. Smith",
-  semester: "Summer 1970",
-  due-time: "Feb 29, 23:59",
+#let setup(
+  title: "Título",
+  author: "Autor",
+  course-id: "Materia",
+  semester: "Cuatrimestre",
   accent-color: rgb("#000000"),
   body,
 ) = {
@@ -41,10 +38,6 @@
 
     #text(size: 18pt)[#course-id]
 
-    #text(size: 18pt)[#due-time]
-
-    #emph(text(size: 18pt)[#instructor])
-
     #v(24em)
 
     #strong(text(size: 18pt)[#author])
@@ -56,7 +49,7 @@
       #author #h(1fr) #title
     ],
     footer: [
-      #align(center)[Page #context counter(page).display() of #context counter(page).final().first()]
+      #align(center)[Página #context counter(page).display() de #context counter(page).final().first()]
     ],
   )
 
